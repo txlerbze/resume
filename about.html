@@ -27,23 +27,48 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Personal
-  * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-  * Updated: Nov 04 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <style>
+    /* Circular images for testimonials */
+    .testimonial-img {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    /* Hover effect for enlarging testimonials */
+    .testimonial-item {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimonial-item:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    /* Swiper pagination styling */
+    .swiper-pagination-bullet {
+      background-color: #007bff;
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 
 <body class="about-page">
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
       <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="sitename">Personal</h1>
       </a>
 
@@ -88,12 +113,10 @@
 
     <!-- About Section -->
     <section id="about" class="about section">
-
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
         <div class="row gy-4 justify-content-center">
           <div class="col-lg-4">
-            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
+            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="Profile Image">
           </div>
           <div class="col-lg-8 content">
             <h2>Programmer &amp; Web Developer.</h2>
@@ -121,50 +144,40 @@
             </p>
           </div>
         </div>
-
       </div>
-
     </section><!-- /About Section -->
+
     <!-- Skills Section -->
     <section id="skills" class="skills section">
-
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Skills</h2>
         <div><span>My</span> <span class="description-title">Skills</span></div>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
         <div class="row skills-content skills-animation">
-
           <div class="col-lg-6">
-
             <div class="progress">
               <span class="skill"><span>HTML</span> <i class="val">75%</i></span>
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="60"></div>
               </div>
             </div><!-- End Skills Item -->
-
             <div class="progress">
               <span class="skill"><span>CSS</span> <i class="val">50%</i></span>
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div><!-- End Skills Item -->
-
             <div class="progress">
               <span class="skill"><span>JavaScript</span> <i class="val">35%</i></span>
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div><!-- End Skills Item -->
-
           </div>
 
           <div class="col-lg-6">
-
             <div class="progress">
               <span class="skill"><span>C++</span> <i class="val">80%</i></span>
               <div class="progress-bar-wrap">
@@ -177,60 +190,67 @@
                 <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div><!-- End Skills Item -->
-
           </div>
-
         </div>
-
       </div>
-
     </section><!-- /Skills Section -->
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section">
-
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Testimonials</h2>
         <div><span>Check my</span> <span class="description-title">Testimonials</span></div>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
         <div class="swiper init-swiper" data-speed="600" data-delay="5000">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 850,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 40
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const swiper = new Swiper('.swiper.init-swiper', {
+                loop: true,
+                speed: 600,
+                autoplay: {
+                  delay: 1250,
                 },
-                "1200": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 20
+                slidesPerView: 'auto',
+                pagination: {
+                  el: '.swiper-pagination',
+                  type: 'bullets',
+                  clickable: true
+                },
+                breakpoints: {
+                  320: {
+                    slidesPerView: 1,
+                    spaceBetween: 40
+                  },
+                  1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                  }
                 }
-              }
-            }
+              });
+          
+              // Stop autoplay on hover
+              const swiperSlides = document.querySelectorAll('.swiper-slide');
+              swiperSlides.forEach(slide => {
+                slide.addEventListener('mouseenter', function() {
+                  swiper.autoplay.stop();
+                });
+                slide.addEventListener('mouseleave', function() {
+                  swiper.autoplay.start();
+                });
+              });
+            });
           </script>
+          
           <div class="swiper-wrapper">
 
             <div class="swiper-slide">
-              <div class="testimonial-item" "="">
-            <p>
-              <i class=" bi bi-quote quote-icon-left"></i>
-                <span>Tyler has an incredible talent for tech. Whether building websites or solving tricky issues, he’s creative, dedicated, and always up-to-date with the latest trends. I'm so proud of everything he accomplishes in I.T.!</span>
-                <i class="bi bi-quote quote-icon-right"></i>
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Tyler has an incredible talent for tech. Whether building websites or solving tricky issues, he’s creative, dedicated, and always up-to-date with the latest trends. I'm so proud of everything he accomplishes in I.T.!</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
                 <h3>Priya Perez</h3>
@@ -255,11 +275,11 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Luis Montejo is a highly knowledgeable IT professional with a deep understanding of technology and its applications. His expertise in troubleshooting, system optimization, and cutting-edge IT solutions makes him a go-to resource for any technical challenge. Luis combines strong problem-solving skills with a collaborative attitude, ensuring projects run smoothly and efficiently. His passion for technology and continuous learning truly sets him apart in the field.</span>
+                  <span>Tyler Montejo is a skilled IT professional with expertise in troubleshooting, system optimization, and innovative IT solutions. His strong problem-solving skills and passion for technology make him a go-to resource for any technical challenge.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/epi.jpg" class="testimonial-img" alt="">
-                <h3>Epi Peck<h3>
+                <h3>Epi Peck</h3>
                 <h4>Big Worm</h4>
               </div>
             </div><!-- End testimonial item -->
@@ -275,9 +295,10 @@
                 <h3>Jimmy Ordaz</h3>
                 <h4>The goat</h4>
               </div>
+            </div><!-- End testimonial item -->
+          </div>
           <div class="swiper-pagination"></div>
         </div>
-
       </div>
 
     </section><!-- /Testimonials Section -->
@@ -287,16 +308,12 @@
   <footer id="footer" class="footer dark-background">
     <div class="container">
       <h3 class="sitename">Personal</h3>
-      <p>"IT student at UB University, passionate about programming and web development, aiming to apply my skills to solve real-world challenges.</p>
+      <p>"IT student at UB University, passionate about programming and web development, aiming to apply my skills to solve real-world challenges."</p>
       <div class="container">
         <div class="copyright">
           <span>Copyright</span> <strong class="px-1 sitename">Personal</strong> <span>All Rights Reserved</span>
         </div>
         <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you've purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
           Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
         </div>
       </div>
